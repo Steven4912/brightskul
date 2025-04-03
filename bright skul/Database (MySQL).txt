@@ -1,0 +1,55 @@
+-- Create database
+CREATE DATABASE bright_school;
+USE bright_school;
+
+-- Students table
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    registration_number VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    phone VARCHAR(20),
+    address TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Courses table
+CREATE TABLE courses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    course_code VARCHAR(20) NOT NULL UNIQUE,
+    course_name VARCHAR(100) NOT NULL,
+    credit_hours INT NOT NULL,
+    description TEXT
+);
+
+-- Student courses junction table
+CREATE TABLE student_courses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    course_id INT NOT NULL,
+    enrollment_date DATE NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES students(id),
+    FOREIGN KEY (course_id) REFERENCES courses(id)
+);
+
+-- Grades table
+CREATE TABLE grades (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_course_id INT NOT NULL,
+    cat_score DECIMAL(5,2),
+    exam_score DECIMAL(5,2),
+    total_score DECIMAL(5,2),
+    grade CHAR(2),
+    remarks TEXT,
+    FOREIGN KEY (student_course_id) REFERENCES student_courses(id)
+);
+
+-- Insert sample courses
+INSERT INTO courses (course_code, course_name, credit_hours, description) VALUES 
+('MATH101', 'Introduction to Mathematics', 3, 'Basic mathematical concepts'),
+('ENG101', 'English Composition', 3, 'Fundamentals of writing'),
+('SCI101', 'General Science', 4, 'Introduction to scientific principles'),
+('HIST101', 'World History', 3, 'Survey of world history');

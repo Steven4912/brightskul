@@ -1,0 +1,32 @@
+        </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bright School</h3>
+                    <p>Providing quality education since 1995</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="<?php echo BASE_URL; ?>dashboard.php">Dashboard</a></li>
+                        <li><a href="<?php echo BASE_URL; ?>courses.php">Courses</a></li>
+                        <li><a href="<?php echo BASE_URL; ?>grades.php">Grades</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@brightschool.edu</p>
+                    <p><i class="fas fa-phone"></i> +254 700 000000</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <?php echo date('Y'); ?> Bright School. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="<?php echo BASE_URL; ?>assets/js/script.js"></script>
+</body>
+</html>

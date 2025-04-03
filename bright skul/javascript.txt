@@ -1,0 +1,49 @@
+// Client-side form validation
+document.addEventListener('DOMContentLoaded', function() {
+    // Registration form validation
+    const regForm = document.getElementById('registration-form');
+    if (regForm) {
+        regForm.addEventListener('submit', function(e) {
+            const password = document.getElementById('password').value;
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters');
+                e.preventDefault();
+            }
+        });
+    }
+
+    // Login form validation
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (!email || !password) {
+                alert('Please fill in all fields');
+                e.preventDefault();
+            }
+        });
+    }
+
+    // Profile form validation
+    const profileForm = document.getElementById('profile-form');
+    if (profileForm) {
+        profileForm.addEventListener('submit', function(e) {
+            const firstName = document.getElementById('first_name').value;
+            const lastName = document.getElementById('last_name').value;
+            
+            if (!firstName || !lastName) {
+                alert('First name and last name are required');
+                e.preventDefault();
+            }
+        });
+    }
+});
+
+// Toggle password visibility
+function togglePasswordVisibility(inputId) {
+    const input = document.getElementById(inputId);
+    const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+    input.setAttribute('type', type);
+}

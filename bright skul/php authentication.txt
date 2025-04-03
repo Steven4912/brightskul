@@ -1,0 +1,20 @@
+<?php
+require_once 'config.php';
+
+function isLoggedIn() {
+    return isset($_SESSION['student_id']);
+}
+
+function registerStudent($data, $conn) {
+    // Validation and registration logic
+    // ... (same as in your original code)
+}
+
+function loginStudent($email, $password, $conn) {
+    // Login logic
+    // ... (same as in your original code)
+}
+
+// Other functions (getStudentProfile, getStudentCourses, etc.)
+// ... (same as in your original code)
+?>
